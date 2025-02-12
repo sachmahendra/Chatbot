@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</head>
+<body>
+   <div class="container">
+       <main class="main-content">
+           <!-- Left Panel -->
+           <div class="left-panel">
+               <!-- File Upload Section -->
+               <!-- <h1>SAP GUIDANCE</h1> -->
+   
+               <div class="form-group">
+
+                <img src="./static/GHCL final Logo.png" alt="ghcl">
+                   <!-- <form id="upload-form" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                       <input type="file" name="file" required>
+                       <button type="submit">Upload File</button>
+                   </form> -->
+               </div>
+   
+
+               <!-- File List and Delete Section -->
+               <!-- <div class="file-list">
+                   <h2>Uploaded Files</h2>
+                   {% if files %}
+                       <ul>
+                           {% for file in files %}
+                               <li class="file-item">
+                                   {{ file }} 
+                                   <a href="{{ url_for('delete_file', filename=file) }}">Delete</a>
+                               </li>
+                           {% endfor %}
+                       </ul>
+                   {% else %}
+                       <p>No files available.</p>
+                   {% endif %}
+               </div> -->
+   
+               <!-- Select Document and Language Section -->
+               <div class="form-group">
+                   <select id="selected_file" name="selected_file" required>
+                       <option value="">Select a document</option>
+                       {% for file in files %}
+                           <option value="{{ file }}">{{ file }}</option>
+                       {% endfor %}
+                   </select>
+                   <span id="doc-selection-message" class="doc-selection-message"></span>
+               </div>
+               <div class="form-group">
+                <div class="language">
+                   <select id="selected_language" name="selected_language" required>
+                       <option value="en">English</option>
+                       <option value="gu">Gujarati</option>
+                       <option value="hi">Hindi</option>
+                       <option value="ta">Tamil</option>
+                   </select>
+               </div>
+            </div>
+           </div>
+   
+           <!-- Right Panel -->
+           <div class="right-panel">
+               <!-- Loader and Display Results
+               <div id="loader-container" class="loader-container">
+                   <div class="loader"></div>
+               </div> -->
+   
+               <!-- Chatbox Container with Scrolling -->
+               <div id="chatbox-container">
+                   <div id="result-box" class="chatbox-window">
+                       <!-- Results will appear here -->
+                   </div>
+               </div>
+   
+               <div class="form-group">
+                   <div class="textarea-wrapper">
+                       <textarea id="query_text" name="query_text" placeholder="Type your question here..." required></textarea>
+                       <div id="loader-container" class="loader-container" style="display: none;">
+                           <div class="loader"></div>
+                       </div>
+                       <button id="ask-question-btn" type="button">&#x2B06;</button> <!-- Thicker upward arrow -->
+                   </div>
+                   
+                   
+               </div>
+   
+               <!-- Feedback section to be integrated within chat responses -->
+               <div class="feedback-section">
+                   <!-- This is where feedback for each question will appear -->
+                   <div class="feedback-box" style="display: none;">
+                       <div class="feedback-input">
+                           <textarea class="feedback-text" placeholder="Please provide your feedback..."></textarea>
+                           <button class="submit-feedback">Submit</button>
+                       </div>
+                       <span class="feedback-error" style="color:red; display:none;">Please provide feedback.</span>
+                   </div>
+               </div>
+
+                   <!-- Popup Message -->
+            <div class="feedback-popup" style="display:none; position:fixed; 
+            top:50%; left:50%; transform:translate(-50%, -50%); background-color:#96DFF7; 
+            color:white; padding:10px; border-radius:5px;">
+                Your feedback has been submitted successfully!
+            </div>             
+        </div>
+               
+               
+               
+     </div>
+       </main>
+   </div>
+   <script src="script.js"></script>
+</body>
+</html>
