@@ -1,0 +1,381 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background: #f0f0f0; */
+    background:  rgb(246, 228, 207);
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    overflow: hidden; /* Prevent scrolling of the page */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px auto;
+    /* background: #fff; */
+    background: linear-gradient(45deg, black, transparent);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Ensure the container doesn't scroll */
+}
+ header {
+     text-align: center;
+     margin-bottom: 20px;
+ }
+ .left-panel h1 {
+     width: 78%;
+     background-color: green; /* Background color */
+     color: #fff;
+     padding: 5px 5px;
+     border-radius: 5px;
+     display: inline-block; /* Restrict background to content width */
+     text-align:center;
+     margin-bottom: 40px;
+     margin-top: 0px;
+ }
+ 
+ .main-content {
+     display: flex;
+     justify-content: space-between; 
+     font-size: 15px;
+ } 
+ .left-panel {
+     width: 38%;
+     margin-bottom: 40px;
+     display: flex;
+     flex-direction: column;
+     gap: -10px;
+     margin-left: 0px;
+     background-color: transparent;
+     padding-left: 15px;
+ }
+ .right-panel {
+     width: 120%; /* Adjusted to fit with the left panel */
+     display: flex;
+     flex-direction: column;
+     margin-left: 0px;
+ }
+ .form-group {
+     margin-bottom: 50px;
+ }
+ input[type="file"] {
+     width: 80%; /* Medium size */
+     border-radius: 4px;
+     border: 1px solid #ccc;
+     padding: 8px;
+     box-sizing: border-box;
+     margin-bottom: 10px;
+ }
+ .textarea-wrapper {
+    position: relative; /* Enable positioning for the button */
+    width: 100%; /* Set to 100% of the container */
+}
+
+textarea {
+    width: 100%; /* Full width */
+    height: 55px; /* Larger height */
+    margin-top: 25px; /* Space above */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 28px; /* Rounded corners */
+    /* background: #fff; White background */
+    background: hsl(0, 14%, 97%); /* White background */
+    box-sizing: border-box; /* Include padding and border in width/height */
+    font-size: 15px; /* Font size */
+    resize: none; /* Prevent resizing */
+}
+
+#ask-question-btn {
+    position: absolute; /* Position the button inside the wrapper */
+    top: 27.5px; /* Position the button higher if needed */
+    right: 3px; /* Align it to the right */
+    width: 50px; /* Increase width to accommodate larger arrow */
+    height: 50px; /* Increase height to match width */
+    background: green; /* Background color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 35px; /* Larger font size for thicker arrow */
+    font-weight: bold; /* Make the arrow thicker */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items to the top of the button */
+    transition: background 0.3s ease; /* Transition for hover effect */
+    z-index: 1; /* Bring the button above the textarea */
+    line-height: 0; /* Adjust line height to help center the arrow */
+}
+
+
+#ask-question-btn:hover {
+    background: darkgreen; /* Darker green on hover */
+}
+
+
+
+
+
+/* Loader styles */
+.loader-container {
+    position: absolute; /* Position relative to textarea */
+    top: 33px; /* Adjust position as needed */
+    right: 10px; /* Align to the right */
+    display: none; /* Hide by default */
+    z-index: 1; /* Ensure it's above the textarea */
+}
+
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid green; /* Green */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Hide Ask Question button initially (if you want to control its visibility via JavaScript later) */
+#ask-question-btn.hidden {
+    display: none; /* Use this class to hide the button */
+}
+
+button {
+    width: 40%; /* Medium size */
+    background: green;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+} 
+
+button:hover {
+    background: darkgreen;
+}
+
+ select {
+     width: 94%; /* Ensure select takes up full width */
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     background: #fff;
+     padding: 10px;
+     /* padding-left: 10px; */
+     box-sizing: border-box;
+ }
+ .chat-box {
+     margin-top: px; /* Reduced top margin */
+     width: 100%; /* Reduced width */
+     border: 1px solid #ccc;
+     padding: 2px;
+     height: 90%;
+     overflow-y: auto;
+     background: #fff;
+     border-radius: 8px;
+     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+     font-size: 15px;
+ }
+ .file-list {
+     margin-top: -20px;
+     margin-bottom:15px;
+     width: 80%;
+ }
+ .file-list ul {
+     list-style-type: disc; /* Changed from bullets to disc */
+     padding: 0;
+     font-size: 15px;
+ }
+ .file-item {
+     margin: 8px 0;
+     padding: 8px;
+     background: #f8f8f8;
+     border-radius: 4px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     font-size: 14px;
+ }
+ .file-item a {
+     color: #dc3545;
+     text-decoration: none;
+     font-weight: bold;
+     transition: color 0.3s ease;
+     font-size: 12px;
+ }
+ .file-item a:hover {
+     color: #c82333;
+ }
+ /* Ensure the entire chatbox container has a fixed height and scroll only within this area */
+ #chatbox-container {
+     height: 440px; /* Adjust this as needed based on your layout */
+     width: 100%; /* Full width of the container */
+     border: 1px solid #ccc;
+     border-top-right-radius: 8px;
+     border-bottom-right-radius: 8px;
+     padding: 10px;
+     box-sizing: border-box;
+     overflow: hidden; /* Ensure no scrollbar is visible here */
+ }
+ 
+ /* This is the actual scrollable chat window where messages will appear */
+ .chatbox-window {
+     height: 100%; /* Take the full height of the parent container */
+     overflow-y: auto; /* Enable vertical scrolling within this element */
+     overflow-x: hidden; /* Hide horizontal scrolling */
+     padding-right: 10px; /* Add padding to avoid the scrollbar covering the text */
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+ }
+ 
+ /* Styling for user and bot messages */
+ .message-block {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     font-size: 15px;
+ }
+ 
+ .message-block .message {
+     margin: 0;
+     padding: 8px;
+     border-radius: 4px;
+     max-width: 95%;
+     line-height: 1.5;
+     box-sizing: border-box;
+     font-size: 15px;
+ }
+ 
+ .message-block .user {
+     background: #e0f7fa;
+     color: #00796b;
+     margin-left: auto; /* Aligns the user message to the right */
+     text-align: right; /* Aligns text within the user message to the right */
+ }
+ 
+ .message-block .bot {
+     background: #c8e6c9;
+     color: black;
+     margin-right: auto; /* Aligns the bot message to the left */
+     text-align: left; /* Aligns text within the bot message to the left */
+ }
+ 
+ .doc-selection-message {
+     display: block;
+     margin-top: 10px;
+     color: #dc3545;
+     font-size: 15px;
+ }
+ .form-label {
+     display: block;
+     margin-bottom: 5px;
+     font-weight: bold;
+     color: #333;
+     font-size: 15px;
+ }
+
+/* Feedback section styling */
+.feedback-section {
+display: flex; /* Use flexbox for layout */
+align-items: center; /* Align items vertically */
+gap: 5px; /* Reduce space between feedback icons and feedback box */
+margin-top: -15px; /* Reduce space between the answer and feedback section */
+}
+
+/* Feedback icons (right and wrong symbols) */
+.feedback-icons {
+display: flex;
+gap: 6px; /* Space between the correct and wrong symbols */
+margin-right: 7px; /* Bring symbols closer to the answer */
+}
+
+.feedback-icons span {
+cursor: pointer; /* Change cursor to pointer */
+padding: 3px; /* Reduce padding around the symbols */
+border-radius: 4px; /* Rounded corners for the symbols */
+transition: background 0.3s ease, transform 0.2s ease; /* Smooth transition for hover and click effect */
+font-size: 20px; /* Reduced size for the feedback symbols */
+}
+
+/* Hover effect for the feedback symbols */
+.feedback-icons span:hover {
+background-color: #e0e0e0; /* Light gray background on hover */
+transform: scale(1.1); /* Slightly scale up the symbol on hover */
+}
+
+/* Feedback box styling */
+.feedback-box {
+display: flex;
+flex-direction: column; /* Stack textarea and button vertically */
+gap: 5px; /* Space between textarea and submit button */
+margin-left: 2px; /* Bring feedback box closer to the feedback icons */
+width: 600px; /* Increased width of the feedback box */
+}
+
+/* Feedback input styling */
+.feedback-input {
+display: flex; /* Use flexbox for layout */
+align-items: center; /* Align items vertically */
+gap: 5px; /* Space between textarea and button */
+width: 100%; /* Use full width for the input section */
+}
+
+/* Feedback textarea styling */
+.feedback-text {
+flex-grow: 1; /* Allow textarea to take available space */
+height: 40px; /* Set fixed height */
+font-size: 12px; /* Smaller font */
+padding: 5px; /* Padding inside the textarea */
+border: 1px solid #ccc; /* Light gray border */
+border-radius: 5px; /* Rounded corners */
+resize: none; /* Disable textarea resizing */
+}
+
+/* Feedback submit button styling */
+/* Feedback submit button styling */
+.submit-feedback {
+padding: 10px 10px; /* Adjust padding for a larger button */
+font-size: 12px; /* Smaller text */
+background-color: green; /* Button background color */
+color: white; /* Button text color */
+border: none; /* Remove borders */
+border-radius: 3px; /* Rounded corners */
+cursor: pointer; /* Pointer cursor on hover */
+width: auto; /* Auto width to fit content */
+min-width: 70px; /* Minimum width for the button to fit 'Submit' */
+margin-top: 25px; /* Adds space above the button, pushing it down */
+}
+
+
+/* Hover effect for submit button */
+.submit-feedback:hover {
+background-color: green; /* Darker blue on hover */
+}
+
+/* Feedback error message styling */
+.feedback-error {
+color: red;
+display: none; /* Initially hidden */
+font-size: 11px; /* Smaller error message text */
+margin-top: 5px; /* Space above error message */
+}
+
+img{
+height: 200px;
+width: 200px;
+margin-left: 36px;
+margin-top: 8px;
+}
+
+.language{
+margin-top: 45px;
+}
