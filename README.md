@@ -49,8 +49,8 @@ Version Control	GitHub
 
 Clone the repository
 
-git clone https://github.com/yourusername/generative-ai-chatbot.git
-cd generative-ai-chatbot
+git clone https://github.com/sachmahendra/Chatbot.git
+cd Chatbot
 
 
 Create and activate a virtual environment
